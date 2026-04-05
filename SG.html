@@ -759,7 +759,7 @@
           <label>Valeur nominale souhaitée (USD)</label>
           <input type="number" id="valeurNominaleManuelle" placeholder="Ex: 192000" value="192000" min="0" step="1000" oninput="mettreAJourDepuisManuel()">
         </div>
-        <div class="info-box-sub" id="valeurNominaleManuelleFCFA">≈ 349 280 000 FCFA</div>
+        <div class="info-box-sub" id="valeurNominaleManuelleFCFA">≈ 113 280 000 FCFA</div>
       </div>
     </div>
 
@@ -808,7 +808,7 @@
       </div>
       <div class="app-info-row" style="margin-top: 0.5rem;">
         <span class="app-info-label">💶 En FCFA (1 USD = 590 FCFA)</span>
-        <span class="app-info-value" id="appValeurNominaleFCFA">340 280 000 FCFA</span>
+        <span class="app-info-value" id="appValeurNominaleFCFA">113 280 000 FCFA</span>
       </div>
     </div>
 
@@ -877,6 +877,8 @@
     const TAUX_USD_FCFA = 590;
     // Facteur pour le calcul automatique (ex: 100 USD * 30 mois * 64 = 192,000 USD)
     const FACTEUR_AUTO = 64;
+    // Montant mensuel fixe en FCFA (basé sur un investissement de 67 USD/mois)
+    const MONTANT_MENSUEL_FCFA = 39530;
 
     // --- GESTION DES ONGLETS ---
     const connexionTab = document.getElementById('connexionTab');
@@ -1154,7 +1156,7 @@
       // Sauvegarder l'utilisateur
       savedUsers[username] = password;
       
-      // Sauvegarder aussi le profil
+      // Sauvegarder aussi le profil avec historique des investissements
       savedUsers[username + '_profile'] = {
         nom: nomComplet,
         montant: parseFloat(montant),
@@ -1276,7 +1278,6 @@
 
     // --- CODE DE L'APPLICATION (investissement) ---
     function initApp() {
-      const MONTANT = 39530;
       const DUREE_MOIS = 30;
 
       const elJoursRestants = document.getElementById('joursRestants');
@@ -1293,7 +1294,7 @@
       const elDateTimeNow = document.getElementById('dateTimeNow');
       const elMontantAffiche = document.getElementById('montantAffiche');
 
-      elMontantAffiche.innerText = MONTANT.toLocaleString();
+      elMontantAffiche.innerText = MONTANT_MENSUEL_FCFA.toLocaleString();
       elTotalMois.innerText = DUREE_MOIS;
 
       let investissements = JSON.parse(localStorage.getItem('investissements')) || [];
@@ -1364,7 +1365,7 @@
           return;
         }
         if (moisEnCoursDejaValide()) {
-          alert('Vous avez déjà validé l’investissement pour ce mois.');
+          alert('Vous avez déjà validé l\'investissement pour ce mois.');
           return;
         }
         const maintenant = new Date();
@@ -1375,7 +1376,7 @@
       };
 
       window.reinitialiser = function() {
-        if (confirm('Réinitialiser tout l’historique ?')) {
+        if (confirm('Réinitialiser tout l\'historique ?')) {
           investissements = [];
           localStorage.removeItem('investissements');
           mettreAJour();
@@ -1383,7 +1384,7 @@
       };
 
       function mettreAJour() {
-        const total = investissements.length * MONTANT;
+        const total = investissements.length * MONTANT_MENSUEL_FCFA;
         elTotal.innerText = total.toLocaleString('fr-FR');
 
         const progression = Math.min((investissements.length / DUREE_MOIS) * 100, 100);
