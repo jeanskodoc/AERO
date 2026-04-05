@@ -874,7 +874,7 @@
 <script>
   (function() {
     // Taux de change (1 USD = 590 FCFA)
-    const TAUX_USD_FCFA = 700;
+    const TAUX_USD_FCFA = 590;
     // Facteur pour le calcul automatique (ex: 100 USD * 30 mois * 64 = 192,000 USD)
     const FACTEUR_AUTO = 64;
 
@@ -932,7 +932,7 @@
       
       valeurNominaleUSD.innerText = valeurCalculeeUSD.toLocaleString() + ' USD';
       
-      // Conversion en FCFA (1 USD = 700 FCFA)
+      // Conversion en FCFA (1 USD = 590 FCFA)
       const valeurCalculeeFCFA = valeurCalculeeUSD * TAUX_USD_FCFA;
       valeurNominaleFCFA.innerText = '≈ ' + valeurCalculeeFCFA.toLocaleString() + ' FCFA';
       
@@ -1257,7 +1257,7 @@
         `📅 *Durée* : ${periode} mois%0A` +
         `📞 *Téléphone* : ${telFormate}%0A%0A` +
         `📈 *Valeur nominale* (${modeTexte}) : ${valeurNominale.toLocaleString()} USD%0A` +
-        `   soit ${valeurNominaleFCFA.toLocaleString()} FCFA (1 USD = 700 FCFA)%0A%0A` +
+        `   soit ${valeurNominaleFCFA.toLocaleString()} FCFA (1 USD = 590 FCFA)%0A%0A` +
         `Merci de valider cette inscription.`;
 
       // Ouvrir WhatsApp avec le message
@@ -1276,7 +1276,7 @@
 
     // --- CODE DE L'APPLICATION (investissement) ---
     function initApp() {
-      const MONTANT = 51000;
+      const MONTANT = 39 530;
       const DUREE_MOIS = 30;
 
       const elJoursRestants = document.getElementById('joursRestants');
