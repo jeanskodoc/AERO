@@ -745,10 +745,10 @@
       
       <!-- Mode automatique -->
       <div id="modeAuto">
-        <div class="info-box-value" id="valeurNominaleUSD">192 000 USD</div>
-        <div class="info-box-sub" id="valeurNominaleFCFA">≈ 134 400 000 FCFA</div>
+        <div class="info-box-value" id="valeurNominaleUSD">592 000 USD</div>
+        <div class="info-box-sub" id="valeurNominaleFCFA">≈ 349 280 000 FCFA</div>
         <div class="info-box-detail">
-          <span class="info-box-detail-item" id="detailMensuel">100 USD/mois</span>
+          <span class="info-box-detail-item" id="detailMensuel">67 USD/mois</span>
           <span class="info-box-detail-item" id="detailPeriode">30 mois</span>
         </div>
       </div>
@@ -759,7 +759,7 @@
           <label>Valeur nominale souhaitée (USD)</label>
           <input type="number" id="valeurNominaleManuelle" placeholder="Ex: 192000" value="192000" min="0" step="1000" oninput="mettreAJourDepuisManuel()">
         </div>
-        <div class="info-box-sub" id="valeurNominaleManuelleFCFA">≈ 134 400 000 FCFA</div>
+        <div class="info-box-sub" id="valeurNominaleManuelleFCFA">≈ 340 280 000 FCFA</div>
       </div>
     </div>
 
@@ -807,14 +807,14 @@
         <span class="app-info-value" id="appValeurNominaleUSD">192 000 USD</span>
       </div>
       <div class="app-info-row" style="margin-top: 0.5rem;">
-        <span class="app-info-label">💶 En FCFA (1 USD = 700 FCFA)</span>
-        <span class="app-info-value" id="appValeurNominaleFCFA">134 400 000 FCFA</span>
+        <span class="app-info-label">💶 En FCFA (1 USD = 590 FCFA)</span>
+        <span class="app-info-value" id="appValeurNominaleFCFA">340 280 000 FCFA</span>
       </div>
     </div>
 
     <div class="card-highlight">
       <div class="montant">
-        <span>💰</span> <span id="montantAffiche">51 000</span> FCFA <span>/ mois</span>
+        <span>💰</span> <span id="montantAffiche">39 530</span> FCFA <span>/ mois</span>
       </div>
 
       <div class="info-row">
@@ -867,13 +867,13 @@
         <tbody id="historique"></tbody>
       </table>
     </div>
-    <footer>⚡ Investissement mensuel le 28</footer>
+    <footer>⚡ Investissement mensuel le 29</footer>
   </div>
 </div>
 
 <script>
   (function() {
-    // Taux de change (1 USD = 700 FCFA)
+    // Taux de change (1 USD = 590 FCFA)
     const TAUX_USD_FCFA = 700;
     // Facteur pour le calcul automatique (ex: 100 USD * 30 mois * 64 = 192,000 USD)
     const FACTEUR_AUTO = 64;
@@ -1040,8 +1040,8 @@
         appValeurNominaleFCFA.innerText = valeurFCFA.toLocaleString() + ' FCFA';
       } else if (username === 'KOLA') {
         // Pour le compte test, afficher une valeur par défaut
-        appValeurNominaleUSD.innerText = '192 000 USD';
-        appValeurNominaleFCFA.innerText = '134 400 000 FCFA';
+        appValeurNominaleUSD.innerText = '592 000 USD';
+        appValeurNominaleFCFA.innerText = '349 280 000 FCFA';
       }
       
       if (typeof initApp === 'function') initApp();
