@@ -759,7 +759,7 @@
           <label>Valeur nominale souhaitée (USD)</label>
           <input type="number" id="valeurNominaleManuelle" placeholder="Ex: 192000" value="192000" min="0" step="1000" oninput="mettreAJourDepuisManuel()">
         </div>
-        <div class="info-box-sub" id="valeurNominaleManuelleFCFA">≈ 340 280 000 FCFA</div>
+        <div class="info-box-sub" id="valeurNominaleManuelleFCFA">≈ 349 280 000 FCFA</div>
       </div>
     </div>
 
@@ -1302,8 +1302,8 @@
         const aujourd = new Date();
         const annee = aujourd.getFullYear();
         const mois = aujourd.getMonth();
-        let dateInvest = new Date(annee, mois, 28);
-        if (aujourd.getDate() > 28) {
+        let dateInvest = new Date(annee, mois, 29);
+        if (aujourd.getDate() > 29) {
           dateInvest = new Date(annee, mois + 1, 28);
         }
         return dateInvest;
